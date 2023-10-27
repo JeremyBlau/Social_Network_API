@@ -1,5 +1,10 @@
 const { Schema, model } = require('mongoose');
 
+// Function to format the date to 'YYYY-MM-DD HH:MM:SS'
+const dateFormat = (timestamp) => {
+  return new Date(timestamp).toISOString();
+};
+
 const thoughtSchema = new Schema({
   thoughtText: {
     type: String,
