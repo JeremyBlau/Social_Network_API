@@ -27,8 +27,6 @@ app.use((req, res) => {
 mongoose.connect('mongodb://localhost/social-media', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
 });
 
 // Start server
