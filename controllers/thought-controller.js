@@ -10,7 +10,10 @@ const thoughtController = {
         select: '-__v',
       })
       .then((thoughts) => res.json(thoughts))
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => {
+        console.error(err); // Log the error for debugging
+        res.status(500).json(err);
+      });
   },
 
   // Get a single thought by its _id
@@ -27,7 +30,10 @@ const thoughtController = {
         }
         return res.json(thought);
       })
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => {
+        console.error(err); // Log the error for debugging
+        res.status(500).json(err);
+      });
   },
 
   // Create a new thought
