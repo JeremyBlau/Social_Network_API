@@ -81,6 +81,9 @@ const thoughtController = {
 
   // Create a reaction stored in a thought's reactions array field
   addReaction({ params, body }, res) {
+    if (!body || !body.reactionBody || !body.username) {
+      return res.status(400).json({ message: 'Invalid reaction data. Please provide both reactionBody and username.' });
+    }
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $push: { reactions: body } },
@@ -92,7 +95,10 @@ const thoughtController = {
         }
         return res.json(thought);
       })
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => {
+        console.error(err); // Log the error for debugging
+        res.status(500).json(err);
+      });
   },
 
   // Pull and remove a reaction by the reaction's reactionId value
