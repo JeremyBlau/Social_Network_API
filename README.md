@@ -5,7 +5,7 @@ Screenshots
 <img width="1361" alt="image" src="https://github.com/JeremyBlau/Social_Network_API/assets/134236414/3abf7a91-b15b-4d1d-97c7-beb99add571f">
 
 ## Deployment
-This application is not deplyed, but you can find a video walkthrough here: https://watch.screencastify.com/v/aZM1oJQu0SV8gWFe7uND
+This application is not deplyed, but you can find a video walkthrough here: https://watch.screencastify.com/v/qL9k6FlCQbkizq8bq66y 
 
 ## Installation
 To install and run this project locally, follow these steps:
