@@ -1,9 +1,5 @@
 const { Schema, model } = require('mongoose');
-
-// Function to format the date to 'YYYY-MM-DD HH:MM:SS'
-const dateFormat = (timestamp) => {
-  return new Date(timestamp).toISOString();
-};
+const reactionSchema = require('./Reaction'); // Import the schema
 
 const thoughtSchema = new Schema({
   thoughtText: {
@@ -21,12 +17,7 @@ const thoughtSchema = new Schema({
     type: String,
     required: true,
   },
-  reactions: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Reaction',
-    },
-  ],
+  reactions: [reactionSchema], // Define reactions as an array of embedded documents
 });
 
 // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.

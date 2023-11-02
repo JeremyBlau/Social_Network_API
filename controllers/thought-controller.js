@@ -84,9 +84,10 @@ const thoughtController = {
     if (!body || !body.reactionBody || !body.username) {
       return res.status(400).json({ message: 'Invalid reaction data. Please provide both reactionBody and username.' });
     }
+  
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
-      { $push: { reactions: body } },
+      { $push: { reactions: body } }, // Push the new reaction as an embedded document
       { new: true, runValidators: true }
     )
       .then((thought) => {
